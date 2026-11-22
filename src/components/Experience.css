@@ -1,0 +1,117 @@
+.timeline {
+  --gap: 2.75rem;
+  margin-top: 3rem;
+  display: grid;
+  gap: var(--gap);
+}
+
+/* 3 colonnes : date | rail (point + ligne) | carte. Rien n'est positionné en pixels à la main. */
+.xp {
+  display: grid;
+  grid-template-columns: 210px 28px minmax(0, 1fr);
+  column-gap: 1.25rem;
+}
+
+.xp__when { display: grid; gap: 0.3rem; align-content: start; text-align: right; padding-top: 0.05rem; }
+.xp__period { font: 500 0.95rem var(--font-mono); color: var(--accent-2); white-space: nowrap; }
+.xp__where { color: var(--muted); font-size: 0.95rem; }
+
+.xp__rail { position: relative; }
+/* le point */
+.xp__rail::before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  z-index: 1;
+}
+/* la ligne qui descend jusqu'au point suivant */
+.xp__rail::after {
+  content: '';
+  position: absolute;
+  top: 1.4rem;
+  bottom: calc(-1 * var(--gap) + 0.2rem);
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(var(--accent), var(--accent-2));
+}
+.xp:last-child .xp__rail::after {
+  bottom: 0;
+  background: linear-gradient(var(--accent), transparent);
+}
+
+.xp__card {
+  padding: 1.75rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(37, 23, 57, 0.7), rgba(27, 16, 48, 0.7));
+}
+.xp__card h3 { font-size: clamp(1.25rem, 2.2vw, 1.6rem); font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
+.section .xp__role { margin-top: 0.4rem; color: var(--accent); font-weight: 500; }
+
+.xp__head { display: flex; align-items: center; gap: 1.1rem; }
+.xp__logo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 8px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.6);
+}
+.xp__logo img { width: 100%; height: 100%; object-fit: contain; }
+.xp__logo span { font-weight: 800; font-size: 1.3rem; color: var(--bg); text-transform: capitalize; }
+
+.section .xp__summary { margin-top: 1.4rem; color: var(--text); max-width: 70ch; line-height: 1.7; }
+
+.xp__bullets { margin-top: 1.5rem; display: grid; gap: 0.7rem; }
+.xp__bullets li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--muted);
+  max-width: 70ch;
+}
+.xp__bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--accent-2);
+}
+
+
+.xp__metrics { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.xp__metrics li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.xp__metrics strong { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+.xp__metrics span { font-size: 0.85rem; color: var(--muted); }
+
+.xp__stack { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.xp__stack .chip { padding: 0.35rem 0.8rem; font-size: 0.78rem; }
+
+@media (max-width: 860px) {
+  .xp { grid-template-columns: 20px minmax(0, 1fr); column-gap: 1rem; row-gap: 0.75rem; }
+  .xp__rail { grid-column: 1; grid-row: 1 / span 2; }
+  .xp__when { grid-column: 2; text-align: left; }
+  .xp__card { grid-column: 2; padding: 1.4rem; }
+}

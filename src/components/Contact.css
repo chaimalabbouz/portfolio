@@ -1,0 +1,74 @@
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+.contact__intro h2 { max-width: 14ch; line-height: 1.05; }
+.contact__intro p { max-width: 46ch; font-size: 1.1rem; line-height: 1.7; }
+.contact__intro p:first-of-type { margin-top: 1.5rem; }
+.contact .contact__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1.75rem 0 2rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: 400 0.85rem var(--font-mono);
+}
+
+.contact__list { display: grid; gap: 1rem; }
+.contact__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-right: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(37, 23, 57, 0.7), rgba(27, 16, 48, 0.7));
+  transition: border-color 0.2s, transform 0.2s;
+}
+.contact__row:hover { border-color: var(--accent-2); transform: translateX(4px); }
+.contact__row > a {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.15rem 0 1.15rem 1.25rem;
+}
+.contact__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+}
+.contact__text { min-width: 0; display: grid; }
+.contact__label { font: 500 0.75rem var(--font-mono); color: var(--muted); }
+.contact__value { font-weight: 500; overflow-wrap: anywhere; }
+.contact__arrow { flex: none; margin-left: auto; color: var(--muted); transition: color 0.2s; }
+.contact__row:hover .contact__arrow { color: var(--accent-2); }
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.75rem clamp(1rem, 4vw, 3.5rem) 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font: 400 0.85rem var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  .contact { grid-template-columns: 1fr; }
+}

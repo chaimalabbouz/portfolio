@@ -1,0 +1,27 @@
+.skills__grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.skill {
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--c);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(420px 160px at 0% 0%, color-mix(in srgb, var(--c) 12%, transparent), transparent 70%),
+    linear-gradient(180deg, rgba(37, 23, 57, 0.75), rgba(27, 16, 48, 0.75));
+}
+.skill h3 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; }
+.section .skill__text { margin-top: 0.4rem; font-size: 0.98rem; }
+
+.skill__items { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.skill__items .chip { padding: 0.35rem 0.85rem; font-size: 0.8rem; }
+.skill__items .chip__dot { background: var(--c); }
+
+.skill:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+@media (max-width: 860px) {
+  .skills__grid { grid-template-columns: 1fr; }
+}
