@@ -67,7 +67,7 @@ export const experiences = [
       'Designed closed-loop agents (coder, tester, fixer) that generate code, test it and fix failures automatically.',
       'Designed an Orchestrator–Worker microservices architecture: FastAPI coordinates asynchronous tasks through Celery and Redis to generate CRUD backends and frontend code.',
       'Automated code testing and validation, email notifications and workflow management with n8n.',
-      'Hardened the system against prompt injection. Since the agents turn user-provided designs and descriptions into code, I engineered defenses so that malicious or manipulative instructions cannot hijack the agents, slip into the generated code, or compromise the resulting applications.',
+      'Implemented prompt injection defenses to protect agents from malicious instructions embedded in user-provided designs and natural-language requirements, ensuring secure code generation and application integrity.',
     ],
     metrics: [
       { value: '~10 min', label: 'per generated app' },
