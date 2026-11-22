@@ -121,7 +121,7 @@ export const education = [
   {
     school: 'National Engineering School of Tunis (ENIT)',
     logo: '/logos/enit.png', // dépose le logo dans public/logos/
-    degree: 'Engineering Degree – Data Science for Intelligent Communications (DSIC)',
+    degree: 'Engineering Degree',
     location: 'Tunis, Tunisia',
     period: 'Sep 2023 – Sep 2026',
     badge: { value: 'With Distinction', label: 'awarded for the final-year project (PFE)' },
