@@ -88,13 +88,16 @@ export const experiences = [
       'Deep learning can detect pneumonia from chest X-rays, but it gives a verdict with no reason, which limits clinicians\u2019 trust. MedSynapse classifies the X-ray and explains its reasoning in a clear medical narrative, backed by similar cases.',
     bullets: [
       'Fine-tuned a ResNet-50 with transfer learning for pneumonia classification, reaching around 96% accuracy.',
-      'Evaluated the model with accuracy, precision and recall (sensitivity), not accuracy alone.',
-      'Investigated a generalization failure with histogram and t-SNE analysis, found a distribution mismatch between the data splits and fixed it by reshuffling the dataset.',
+      'Evaluated the model with accuracy, precision and recall.',
+      'Applied t-SNE dimensionality reduction and histogram analysis to visualize image data distributions and extract insights into their characteristics.',
       'Built the explainability layer: a convolutional autoencoder encodes each X-ray, FAISS retrieves similar cases, and a local LLM (Ollama) writes the medical narrative.',
-      'Delivered the system as a Streamlit web app for practitioners.',
+      'Delivered the system as a web app for practitioners.',
     ],
-    metrics: [{ value: '~96%', label: 'classification accuracy' }],
-    stack: ['ResNet-50', 'Autoencoder', 'FAISS', 'RAG', 'Ollama', 'Streamlit'],
+    metrics: [
+      { value: '~96%', label: 'classification accuracy' },
+      { value: '~90%', label: 'recall'                  },
+    ],
+    stack: ['ResNet-50', 'Fine tuning' , 'Autoencoder', 'FAISS', 'RAG', 'Ollama', 'Streamlit'],
   },
   {
     project: 'Clinify – AI-Powered Clinic Management Platform',
@@ -110,7 +113,7 @@ export const experiences = [
       'Integrated personalized AI-driven health recommendations and medication reminders.',
     ],
     metrics: [],
-    stack: [],
+    stack: ['Angular', 'TypeScript', 'Node.js', 'Express.js', 'REST APIs', 'Git', 'GitHub', 'Scrum'],
   },
 ]
 
